@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { useReveal } from '../lib/hooks';
 import { supabase } from '../lib/supabase';
+import { sendConsultationEmail, isEmailjsConfigured } from '../lib/emailjs';
 import {
   Phone,
   Mail,
@@ -55,12 +56,22 @@ export default function Contact() {
       phone: formData.get('phone') as string,
       email: formData.get('email') as string,
       business_stage: formData.get('business_stage') as string,
-      message: (formData.get('message') as string) || null,
+      message: (formData.get('message') as string) || '',
     };
 
     try {
       const { error } = await supabase.from('consultation_requests').insert(data);
       if (error) throw error;
+
+      // Send reply email via EmailJS (non-blocking — submission already saved)
+      if (isEmailjsConfigured()) {
+        try {
+          await sendConsultationEmail(data);
+        } catch (emailErr) {
+          console.error('EmailJS send failed:', emailErr);
+        }
+      }
+
       setStatus('success');
       (e.target as HTMLFormElement).reset();
     } catch (err) {
