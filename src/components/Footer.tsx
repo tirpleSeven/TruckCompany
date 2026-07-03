@@ -39,11 +39,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-4">
             <a href="#home" className="flex items-center gap-2.5 mb-5">
-              <img src="/logo.svg" alt="The Trucking Setup logo" className="w-10 h-10" />
-              <div className="flex flex-col leading-none">
-                <span className="font-display font-bold text-slate-800 dark:text-white text-lg tracking-tight">The Trucking Setup</span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-accent-500 dark:text-accent-400 font-semibold">Consulting</span>
-              </div>
+              <span className="flex items-center rounded-xl overflow-hidden bg-white dark:bg-white/90 px-1 py-0.5">
+                <img
+                  src="/image copy.png"
+                  alt="The Trucking Setup Consulting"
+                  className="h-9 w-auto"
+                />
+              </span>
             </a>
             <p className="text-sm text-slate-600 dark:text-ink-300 leading-relaxed max-w-sm mb-6">
               We help aspiring entrepreneurs start and grow profitable trucking businesses.

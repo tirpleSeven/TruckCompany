@@ -39,11 +39,13 @@ export default function Navbar() {
       <nav className="section-pad max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2.5 group">
-          <img src="/logo.svg" alt="The Trucking Setup logo" className="w-10 h-10 group-hover:scale-105 transition-transform" />
-          <div className="flex flex-col leading-none">
-            <span className="font-display font-bold text-slate-800 dark:text-white text-lg tracking-tight">The Trucking Setup</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-accent-500 dark:text-accent-400 font-semibold">Consulting</span>
-          </div>
+          <span className="flex items-center rounded-xl overflow-hidden bg-white dark:bg-white/90 px-1 py-0.5 group-hover:scale-105 transition-transform">
+            <img
+              src="/image copy.png"
+              alt="The Trucking Setup Consulting"
+              className="h-9 w-auto"
+            />
+          </span>
         </a>
 
         {/* Desktop links */}
