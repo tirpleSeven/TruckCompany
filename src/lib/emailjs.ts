@@ -24,15 +24,7 @@ export type ConsultationEmailData = {
 };
 
 export function isEmailjsConfigured() {
-  return (
-    SERVICE_ID &&
-    TEMPLATE_ID &&
-    PUBLIC_KEY &&
-    SERVICE_ID !== 'service_9el9w7c' &&
-    TEMPLATE_ID !== 'template_xj5hcnz' &&
-    PUBLIC_KEY !== '3MKCkATC8G9ef3ZjZ'
-
-  );
+  return Boolean(SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY);
 }
 
 export async function sendConsultationEmail(data: ConsultationEmailData) {
@@ -40,11 +32,7 @@ export async function sendConsultationEmail(data: ConsultationEmailData) {
     throw new Error('EmailJS is not configured. Please set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in your .env file.');
   }
 
-  const emailjs = window.emailjs;
-  if (!emailjs) {
-    throw new Error('EmailJS SDK failed to load from CDN.');
-  }
-
+  const emailjs = await waitForEmailjs();
   emailjs.init({ publicKey: PUBLIC_KEY });
 
   return emailjs.send(SERVICE_ID, TEMPLATE_ID, {
@@ -54,5 +42,21 @@ export async function sendConsultationEmail(data: ConsultationEmailData) {
     business_stage: data.business_stage,
     message: data.message || 'No additional message provided.',
     reply_to: data.email,
+  });
+}
+
+async function waitForEmailjs(timeoutMs = 5000): Promise<NonNullable<Window['emailjs']>> {
+  if (window.emailjs) return window.emailjs;
+  return new Promise((resolve, reject) => {
+    const start = Date.now();
+    const interval = setInterval(() => {
+      if (window.emailjs) {
+        clearInterval(interval);
+        resolve(window.emailjs);
+      } else if (Date.now() - start > timeoutMs) {
+        clearInterval(interval);
+        reject(new Error('EmailJS SDK failed to load from CDN.'));
+      }
+    }, 100);
   });
 }

@@ -68,7 +68,13 @@ export default function Contact() {
           await sendConsultationEmail(data);
         } catch (emailErr) {
           console.error('EmailJS send failed:', emailErr);
+          setErrorMsg('Your request was saved, but the email notification failed to send. We may still contact you.');
+          setStatus('error');
+          (e.target as HTMLFormElement).reset();
+          return;
         }
+      } else {
+        console.warn('EmailJS not configured — skipping email send. Set VITE_EMAILJS_* env vars to enable email notifications.');
       }
 
       setStatus('success');
