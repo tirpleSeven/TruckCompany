@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Truck, Phone, Sun, Moon } from 'lucide-react';
+import { Menu, X, Phone, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../lib/useTheme';
 
 const navLinks = [
@@ -39,11 +39,9 @@ export default function Navbar() {
       <nav className="section-pad max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2.5 group">
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center shadow-lg shadow-accent-500/30 group-hover:scale-105 transition-transform">
-            <Truck className="w-5 h-5 text-white" strokeWidth={2.5} />
-          </div>
+          <img src="/logo.svg" alt="The Trucking Setup logo" className="w-10 h-10 group-hover:scale-105 transition-transform" />
           <div className="flex flex-col leading-none">
-            <span className="font-display font-bold text-slate-800 dark:text-white text-lg tracking-tight">Haul Forward</span>
+            <span className="font-display font-bold text-slate-800 dark:text-white text-lg tracking-tight">The Trucking Setup</span>
             <span className="text-[10px] uppercase tracking-[0.2em] text-accent-500 dark:text-accent-400 font-semibold">Consulting</span>
           </div>
         </a>

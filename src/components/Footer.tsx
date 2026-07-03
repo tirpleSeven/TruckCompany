@@ -1,4 +1,4 @@
-import { Truck, Facebook, Instagram, Linkedin, Youtube, ArrowUp } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Youtube, ArrowUp } from 'lucide-react';
 
 const footerLinks = {
   Services: [
@@ -39,11 +39,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-4">
             <a href="#home" className="flex items-center gap-2.5 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center shadow-lg shadow-accent-500/30">
-                <Truck className="w-5 h-5 text-white" strokeWidth={2.5} />
-              </div>
+              <img src="/logo.svg" alt="The Trucking Setup logo" className="w-10 h-10" />
               <div className="flex flex-col leading-none">
-                <span className="font-display font-bold text-slate-800 dark:text-white text-lg tracking-tight">Haul Forward</span>
+                <span className="font-display font-bold text-slate-800 dark:text-white text-lg tracking-tight">The Trucking Setup</span>
                 <span className="text-[10px] uppercase tracking-[0.2em] text-accent-500 dark:text-accent-400 font-semibold">Consulting</span>
               </div>
             </a>
@@ -97,7 +95,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-500 dark:text-ink-400 text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Haul Forward Consulting. All rights reserved.
+            &copy; {new Date().getFullYear()} The Trucking Setup. All rights reserved.
           </p>
           <a
             href="#home"

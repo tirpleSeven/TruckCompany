@@ -54,7 +54,7 @@ export default function Benefits() {
             Benefits
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-gradient mb-5 leading-tight">
-            Why Entrepreneurs Choose Haul Forward
+            Why Entrepreneurs Choose The Trucking Setup
           </h2>
           <p className="text-slate-600 dark:text-ink-300 text-lg">
             Every advantage you need to build a trucking business that lasts.

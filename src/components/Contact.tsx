@@ -25,8 +25,8 @@ const businessStages = [
 ];
 
 const contactInfo = [
-  { icon: Phone, label: 'Call Us', value: '(800) 555-0142', href: 'tel:+18005550142' },
-  { icon: Mail, label: 'Email Us', value: 'hello@haulforward.co', href: 'mailto:hello@haulforward.co' },
+  { icon: Phone, label: 'Call Us', value: '(480) 400-4518', href: 'tel:+14804004518' },
+  { icon: Mail, label: 'Email Us', value: 'info@TheTruckingSetup.com', href: 'mailto:info@TheTruckingSetup.com' },
   { icon: Clock, label: 'Business Hours', value: 'Mon–Fri 8AM–7PM EST' },
   { icon: MapPin, label: 'Service Area', value: 'Nationwide, USA' },
 ];

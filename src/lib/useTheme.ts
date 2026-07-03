@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export type Theme = 'dark' | 'light';
 
-const STORAGE_KEY = 'haul-forward-theme';
+const STORAGE_KEY = 'trucking-setup-theme';
 
 function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'dark';
